@@ -15,6 +15,18 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+def convert_objectid(obj):
+    """Convert MongoDB ObjectId to string for JSON serialization"""
+    if hasattr(obj, '_id'):
+        obj['_id'] = str(obj['_id'])
+    if isinstance(obj, dict):
+        for key, value in obj.items():
+            if hasattr(value, '__dict__'):
+                obj[key] = convert_objectid(value.__dict__)
+            elif isinstance(value, datetime):
+                obj[key] = value.isoformat()
+    return obj
+
 app = FastAPI(title="ShikshaChain API", version="1.0.0")
 
 # CORS configuration
