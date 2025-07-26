@@ -51,7 +51,7 @@ class Student(BaseModel):
     name: str
     wallet_address: str
     aadhaar_id: str
-    created_at: datetime = datetime.now()
+    created_at: Optional[datetime] = None
 
 class DegreeRequest(BaseModel):
     student_id: str
