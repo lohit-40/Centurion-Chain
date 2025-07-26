@@ -218,6 +218,9 @@ async def mint_degree(degree_request: DegreeRequest):
         degree_dict['created_at'] = datetime.now()
         await degrees_collection.insert_one(degree_dict)
         
+        # Convert datetime to string for JSON response
+        degree_dict['created_at'] = degree_dict['created_at'].isoformat()
+        
         logger.info(f"Minted degree NFT {nft_token_id} for student {degree_request.student_name}")
         return {
             "message": "Degree NFT minted successfully",
