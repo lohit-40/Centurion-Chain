@@ -1,4 +1,4 @@
-# Centurion-ChainA 🚀
+# Centurion-Chain 🚀
 
 A Stacks-powered system for issuing tamper-proof NFT degree certificates for Centurion University.
 
@@ -24,7 +24,7 @@ A Stacks (Clarity)-powered NFT system where Centurion University can mint degree
 ## 🛠️ Tech Stack
 
 - **Blockchain**: Stacks L2 (Clarity) + Bitcoin settlement
-- **Frontend**: Next.js + Leather Wallet
+- **Frontend**: React.js + Leather Wallet
 - **Backend**: Node.js + Gaia Storage
 - **Auth**: Mock Aadhaar e-KYC (IndiaStack)
 
