@@ -207,6 +207,7 @@ async def mint_degree(degree_request: DegreeRequest):
         )
         
         degree_dict = degree.model_dump()
+        degree_dict['created_at'] = datetime.now()
         await degrees_collection.insert_one(degree_dict)
         
         logger.info(f"Minted degree NFT {nft_token_id} for student {degree_request.student_name}")
