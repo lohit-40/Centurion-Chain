@@ -117,6 +117,8 @@ async def create_university(university: University):
         
         logger.info(f"Created university: {university.name}")
         return {"message": "University created successfully", "university": university_dict}
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Error creating university: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
