@@ -76,7 +76,7 @@ class Degree(BaseModel):
     tx_id: Optional[str] = None  # Stacks transaction ID
     pdf_data: Optional[str] = None  # Base64 encoded PDF
     qr_code: Optional[str] = None
-    created_at: datetime = datetime.now()
+    created_at: Optional[datetime] = None
     verified: bool = False
 
 # Health check
