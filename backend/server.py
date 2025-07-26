@@ -143,6 +143,13 @@ async def get_university(university_id: str):
         university = await universities_collection.find_one({"id": university_id})
         if not university:
             raise HTTPException(status_code=404, detail="University not found")
+        
+        # Remove MongoDB ObjectId and convert datetime
+        if '_id' in university:
+            del university['_id']
+        if 'created_at' in university and isinstance(university['created_at'], datetime):
+            university['created_at'] = university['created_at'].isoformat()
+            
         return {"university": university}
     except Exception as e:
         logger.error(f"Error fetching university: {str(e)}")
