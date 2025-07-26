@@ -319,6 +319,11 @@ async def get_student_degrees(student_id: str):
     try:
         degrees = []
         async for degree in degrees_collection.find({"student_id": student_id}):
+            # Remove MongoDB ObjectId and convert datetime
+            if '_id' in degree:
+                del degree['_id']
+            if 'created_at' in degree and isinstance(degree['created_at'], datetime):
+                degree['created_at'] = degree['created_at'].isoformat()
             degrees.append(degree)
         return {"degrees": degrees}
     except Exception as e:
@@ -330,6 +335,11 @@ async def get_degrees_by_wallet(wallet_address: str):
     try:
         degrees = []
         async for degree in degrees_collection.find({"student_wallet_address": wallet_address}):
+            # Remove MongoDB ObjectId and convert datetime
+            if '_id' in degree:
+                del degree['_id']
+            if 'created_at' in degree and isinstance(degree['created_at'], datetime):
+                degree['created_at'] = degree['created_at'].isoformat()
             degrees.append(degree)
         return {"degrees": degrees}
     except Exception as e:
@@ -341,6 +351,11 @@ async def get_all_degrees():
     try:
         degrees = []
         async for degree in degrees_collection.find():
+            # Remove MongoDB ObjectId and convert datetime
+            if '_id' in degree:
+                del degree['_id']
+            if 'created_at' in degree and isinstance(degree['created_at'], datetime):
+                degree['created_at'] = degree['created_at'].isoformat()
             degrees.append(degree)
         return {"degrees": degrees}
     except Exception as e:
