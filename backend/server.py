@@ -111,6 +111,9 @@ async def create_university(university: University):
         
         # Convert datetime to string for JSON response
         university_dict['created_at'] = university_dict['created_at'].isoformat()
+        # Remove MongoDB ObjectId if present
+        if '_id' in university_dict:
+            del university_dict['_id']
         
         logger.info(f"Created university: {university.name}")
         return {"message": "University created successfully", "university": university_dict}
