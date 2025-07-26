@@ -52,7 +52,7 @@ class ShikshaChainTester:
         university_data = {
             "id": str(uuid.uuid4()),
             "name": "Biju Patnaik University of Technology",
-            "principal_address": "SP2J6ZY48GV1EZ5V2V5RB9MP66SW86PYKKNRV9EJ7",
+            "principal_address": f"SP2J6ZY48GV1EZ5V2V5RB9MP66SW86PYKKNRV9EJ{uuid.uuid4().hex[:1].upper()}",
             "authorized": True
         }
         
