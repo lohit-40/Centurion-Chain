@@ -96,6 +96,10 @@ async def create_university(university: University):
         university_dict = university.model_dump()
         university_dict['created_at'] = datetime.now()
         await universities_collection.insert_one(university_dict)
+        
+        # Convert datetime to string for JSON response
+        university_dict['created_at'] = university_dict['created_at'].isoformat()
+        
         logger.info(f"Created university: {university.name}")
         return {"message": "University created successfully", "university": university_dict}
     except Exception as e:
