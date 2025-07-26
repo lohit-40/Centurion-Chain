@@ -581,7 +581,7 @@ function App() {
                         <div className="mt-4">
                           <h4 className="text-sm font-medium text-gray-700 mb-2">Share QR Code:</h4>
                           <div className="bg-white p-4 inline-block border border-gray-200 rounded">
-                            <QRCode value={degree.qr_code} size={128} />
+                            <QRCodeSVG value={degree.qr_code} size={128} />
                           </div>
                         </div>
                       )}
