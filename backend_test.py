@@ -120,8 +120,8 @@ class ShikshaChainTester:
         student_data = {
             "id": str(uuid.uuid4()),
             "name": "Rajesh Kumar Singh",
-            "wallet_address": "SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8YJ5GHZQ",
-            "aadhaar_id": "123456789012"
+            "wallet_address": f"SP3FBR2AGK5H9QBDH3EEN6DF8EK8JY7RX8YJ5GHZ{uuid.uuid4().hex[:1].upper()}",
+            "aadhaar_id": f"{uuid.uuid4().int % 1000000000000:012d}"
         }
         
         try:
