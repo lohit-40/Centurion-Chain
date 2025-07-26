@@ -292,13 +292,18 @@ async def verify_degree(degree_id: int):
         # Get university info
         university = await universities_collection.find_one({"id": degree["university_id"]})
         
+        # Convert datetime if present
+        issue_date = degree.get("created_at", datetime.now())
+        if isinstance(issue_date, datetime):
+            issue_date = issue_date.isoformat()
+        
         verification_data = {
             "degree_id": degree["degree_id"],
             "student_name": degree["student_name"],
             "course": degree["course"],
             "university": degree["university_name"],
             "graduation_year": degree["graduation_year"],
-            "issue_date": degree["created_at"],
+            "issue_date": issue_date,
             "verified": degree["verified"],
             "student_wallet": degree["student_wallet_address"],
             "university_authorized": university["authorized"] if university else False
