@@ -186,6 +186,13 @@ async def get_student(student_id: str):
         student = await students_collection.find_one({"id": student_id})
         if not student:
             raise HTTPException(status_code=404, detail="Student not found")
+        
+        # Remove MongoDB ObjectId and convert datetime
+        if '_id' in student:
+            del student['_id']
+        if 'created_at' in student and isinstance(student['created_at'], datetime):
+            student['created_at'] = student['created_at'].isoformat()
+            
         return {"student": student}
     except Exception as e:
         logger.error(f"Error fetching student: {str(e)}")
