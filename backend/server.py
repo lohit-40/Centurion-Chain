@@ -238,6 +238,9 @@ async def mint_degree(degree_request: DegreeRequest):
         
         # Convert datetime to string for JSON response
         degree_dict['created_at'] = degree_dict['created_at'].isoformat()
+        # Remove MongoDB ObjectId if present
+        if '_id' in degree_dict:
+            del degree_dict['_id']
         
         logger.info(f"Minted degree NFT {nft_token_id} for student {degree_request.student_name}")
         return {
