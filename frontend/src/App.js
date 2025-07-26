@@ -9,7 +9,7 @@ import {
   uintCV, 
   standardPrincipalCV 
 } from '@stacks/transactions';
-import QRCode from 'qrcode.react';
+import { QRCodeSVG } from 'qrcode.react';
 import './App.css';
 
 const appConfig = new AppConfig(['store_write', 'publish_data']);
