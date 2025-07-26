@@ -158,6 +158,9 @@ async def create_student(student: Student):
         
         # Convert datetime to string for JSON response
         student_dict['created_at'] = student_dict['created_at'].isoformat()
+        # Remove MongoDB ObjectId if present
+        if '_id' in student_dict:
+            del student_dict['_id']
         
         logger.info(f"Created student: {student.name}")
         return {"message": "Student created successfully", "student": student_dict}
