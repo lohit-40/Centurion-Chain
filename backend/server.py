@@ -178,6 +178,8 @@ async def create_student(student: Student):
         
         logger.info(f"Created student: {student.name}")
         return {"message": "Student created successfully", "student": student_dict}
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Error creating student: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
