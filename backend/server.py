@@ -44,7 +44,7 @@ class University(BaseModel):
     name: str
     principal_address: str
     authorized: bool = True
-    created_at: datetime = datetime.now()
+    created_at: Optional[datetime] = None
 
 class Student(BaseModel):
     id: str
