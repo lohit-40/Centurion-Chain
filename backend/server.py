@@ -126,6 +126,11 @@ async def get_universities():
     try:
         universities = []
         async for uni in universities_collection.find():
+            # Remove MongoDB ObjectId and convert datetime
+            if '_id' in uni:
+                del uni['_id']
+            if 'created_at' in uni and isinstance(uni['created_at'], datetime):
+                uni['created_at'] = uni['created_at'].isoformat()
             universities.append(uni)
         return {"universities": universities}
     except Exception as e:
