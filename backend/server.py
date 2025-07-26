@@ -134,6 +134,7 @@ async def create_student(student: Student):
             raise HTTPException(status_code=400, detail="Student with this wallet address or Aadhaar ID already exists")
         
         student_dict = student.model_dump()
+        student_dict['created_at'] = datetime.now()
         await students_collection.insert_one(student_dict)
         logger.info(f"Created student: {student.name}")
         return {"message": "Student created successfully", "student": student_dict}
