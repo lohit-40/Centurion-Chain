@@ -140,6 +140,10 @@ async def create_student(student: Student):
         student_dict = student.model_dump()
         student_dict['created_at'] = datetime.now()
         await students_collection.insert_one(student_dict)
+        
+        # Convert datetime to string for JSON response
+        student_dict['created_at'] = student_dict['created_at'].isoformat()
+        
         logger.info(f"Created student: {student.name}")
         return {"message": "Student created successfully", "student": student_dict}
     except Exception as e:
