@@ -94,6 +94,7 @@ async def create_university(university: University):
             raise HTTPException(status_code=400, detail="University with this principal address already exists")
         
         university_dict = university.model_dump()
+        university_dict['created_at'] = datetime.now()
         await universities_collection.insert_one(university_dict)
         logger.info(f"Created university: {university.name}")
         return {"message": "University created successfully", "university": university_dict}
