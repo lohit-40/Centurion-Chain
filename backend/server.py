@@ -311,6 +311,8 @@ async def verify_degree(degree_id: int):
             "course": degree["course"],
             "university": degree["university_name"],
             "graduation_year": degree["graduation_year"],
+            "sgpa": degree.get("sgpa"),
+            "cgpa": degree.get("cgpa"),
             "issue_date": issue_date,
             "verified": degree["verified"],
             "student_wallet": degree["student_wallet_address"],
