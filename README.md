@@ -1,5 +1,8 @@
 # Centurion-Chain 🚀
-For Evaluation? WELCOME TO https://e1a3bdda-0a6b-4170-adc8-b66eca5f48b9.preview.emergentagent.com THIS SITE
+For Evaluation? WELCOME TO https://e1a3bdda-0a6b-4170-adc8-b66eca5f48b9.preview.emergentagent.com THIS SITE.
+ if above link show something like this <img width="719" height="720" alt="Screenshot 2025-07-27 184025" src="https://github.com/user-attachments/assets/98e7cc2b-5f96-4794-a983-81d1073b424a" />
+come here https://degreeverify.preview.emergentagent.com/
+
 
 A Stacks-powered system for issuing tamper-proof NFT degree certificates for Centurion University.
 
