@@ -685,6 +685,18 @@ function App() {
                         <p className="text-sm font-medium text-gray-700">Graduation Year</p>
                         <p className="text-gray-900">{verificationResult.graduation_year}</p>
                       </div>
+                      {verificationResult.sgpa && (
+                        <div>
+                          <p className="text-sm font-medium text-gray-700">SGPA</p>
+                          <p className="text-gray-900 font-semibold text-blue-600">{verificationResult.sgpa}</p>
+                        </div>
+                      )}
+                      {verificationResult.cgpa && (
+                        <div>
+                          <p className="text-sm font-medium text-gray-700">CGPA</p>
+                          <p className="text-gray-900 font-semibold text-blue-600">{verificationResult.cgpa}</p>
+                        </div>
+                      )}
                       <div>
                         <p className="text-sm font-medium text-gray-700">Verification Status</p>
                         <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
