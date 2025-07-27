@@ -86,6 +86,8 @@ class Degree(BaseModel):
     university_name: str
     course: str
     graduation_year: int
+    sgpa: Optional[float] = None  # Semester Grade Point Average
+    cgpa: Optional[float] = None  # Cumulative Grade Point Average
     degree_hash: str
     tx_id: Optional[str] = None  # Stacks transaction ID
     pdf_data: Optional[str] = None  # Base64 encoded PDF
