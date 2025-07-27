@@ -45,6 +45,8 @@ function App() {
     course: '',
     graduation_year: new Date().getFullYear(),
     university_id: '',
+    sgpa: '',
+    cgpa: '',
     degree_pdf_base64: ''
   });
   const [verificationId, setVerificationId] = useState('');
