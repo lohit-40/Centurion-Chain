@@ -247,6 +247,8 @@ async def mint_degree(degree_request: DegreeRequest):
             "course": degree_request.course,
             "university": university["name"],
             "graduation_year": degree_request.graduation_year,
+            "sgpa": degree_request.sgpa,
+            "cgpa": degree_request.cgpa,
             "verification_url": f"/api/degrees/verify/{nft_token_id}"
         }
         
@@ -260,6 +262,8 @@ async def mint_degree(degree_request: DegreeRequest):
             university_name=university["name"],
             course=degree_request.course,
             graduation_year=degree_request.graduation_year,
+            sgpa=degree_request.sgpa,
+            cgpa=degree_request.cgpa,
             degree_hash=degree_hash,
             pdf_data=degree_request.degree_pdf_base64,
             qr_code=str(qr_data),
