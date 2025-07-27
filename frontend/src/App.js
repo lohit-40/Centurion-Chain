@@ -598,6 +598,12 @@ function App() {
                           <h3 className="text-lg font-semibold text-gray-900">{degree.course}</h3>
                           <p className="text-gray-600">{degree.university_name}</p>
                           <p className="text-sm text-gray-500">Graduated: {degree.graduation_year}</p>
+                          {degree.sgpa && (
+                            <p className="text-sm text-blue-600">SGPA: {degree.sgpa}</p>
+                          )}
+                          {degree.cgpa && (
+                            <p className="text-sm text-blue-600">CGPA: {degree.cgpa}</p>
+                          )}
                         </div>
                         <div className="text-right">
                           <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
