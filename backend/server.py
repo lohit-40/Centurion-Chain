@@ -72,6 +72,8 @@ class DegreeRequest(BaseModel):
     course: str
     graduation_year: int
     university_id: str
+    sgpa: Optional[float] = None  # Semester Grade Point Average
+    cgpa: Optional[float] = None  # Cumulative Grade Point Average
     degree_pdf_base64: Optional[str] = None
 
 class Degree(BaseModel):
